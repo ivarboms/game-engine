@@ -13,7 +13,9 @@ struct Camera
   Camera(float fieldOfViewDegrees = 60.0f, float aspectRatio = 16.0f / 9.0f,
     float nearClip = 0.1f, float farClip = 1000.0f);
 
-  void setProperties(float fieldOfViewDegrees, float aspectRatio, float nearClip, float farClip);
+  /*  Sets the frustum to use the provided values.
+  */
+  void computeFrustum(float fieldOfViewDegrees, float aspectRatio, float nearClip, float farClip);
 
 
   DirectX::XMMATRIX projection;
