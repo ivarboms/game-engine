@@ -22,20 +22,10 @@ void Camera::computeFrustum(float fieldOfViewDegrees, float aspectRatio, float n
 
 XMMATRIX calculateViewMatrix(FXMVECTOR cameraPosition, FXMVECTOR cameraRotation)
 {
-  //Calculate the camera's up and forward axes.
-  //g_XMIdentityR1 is up in world space, g_XMIdentityR2 is forward.
-  const XMVECTOR upCameraSpace = XMVector3Rotate(g_XMIdentityR1, cameraRotation);
-  const XMVECTOR forwardCameraSpace = XMVector3Rotate(g_XMIdentityR2, cameraRotation);
-
-  //The look-at target is just in front of the camera in camera space.
-  const XMVECTOR lookAtTarget = cameraPosition + forwardCameraSpace;
-
-  //return XMMatrixLookAtLH(lookAtTarget, cameraPosition, upCameraSpace);
-  //return XMMatrixLookAtLH(cameraPosition, lookAtTarget, upCameraSpace);
-  XMMATRIX m = XMMatrixAffineTransformation(XMVectorReplicate(1.0f), cameraPosition, cameraRotation, XMVectorNegate(cameraPosition));
-
-  //printf("X: %.2f, Y: %.2f, Z: %.2f, W: %.2f\n", cameraRotation.m128_f32[0], cameraRotation.m128_f32[1], cameraRotation.m128_f32[2], cameraRotation.m128_f32[3]);
-  return m;
+  //Compute the camera's world matrix, and then invert it, resulting in the view matrix.
+  const XMMATRIX world = XMMatrixAffineTransformation(XMVectorReplicate(1.0f), XMVectorZero(),
+    cameraRotation, cameraPosition);
+  return XMMatrixInverse(nullptr, world);
 }
 
 void setCameraConstantBuffer(ID3D11Buffer& constantBuffer, ID3D11DeviceContext& deviceContext)
