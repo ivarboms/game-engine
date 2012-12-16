@@ -6,16 +6,23 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <filesystem>
+#include <boost/date_time/posix_time/conversion.hpp>
 
 
 FileInfo getFileInfo(const wchar_t* fileName)
 {
-  struct _stat64 buffer;
+  using namespace boost::posix_time;
+
+  struct _stat64 buffer = {};
   const int info = _wstat64(fileName, &buffer);
 
   FileInfo fileInfo = {};
   fileInfo.exists = info == 0;
   fileInfo.fileSizeBytes = buffer.st_size;
+  //If compilation fails here, the program is probably set to use 32 bit time_t.
+  fileInfo.lastAccessedTime = from_time_t(buffer.st_atime);
+  fileInfo.lastModifiedTime = from_time_t(buffer.st_mtime);
+  fileInfo.createdTime = from_time_t(buffer.st_ctime);
 
   return fileInfo;
 }

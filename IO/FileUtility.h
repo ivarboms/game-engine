@@ -1,15 +1,21 @@
 #pragma once
 
 #include <time.h>
+#include <boost/date_time/posix_time/posix_time_types.hpp>
 
 
 struct FileInfo
 {
-	bool exists;
-	long long fileSizeBytes;
-  __time64_t lastAccessedTime;
-  __time64_t lastModifiedTime;
-  __time64_t createdTime;
+  //Does the file exist?
+  bool exists;
+  //The size of the file, in bytes.
+  long long fileSizeBytes;
+  //When the file was last accessed.
+  boost::posix_time::ptime lastAccessedTime;
+  //When the file was last modified.
+  boost::posix_time::ptime lastModifiedTime;
+  //When the file was created.
+  boost::posix_time::ptime createdTime;
 };
 
 
