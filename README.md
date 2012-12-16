@@ -1,2 +1,1 @@
-game-engine
-===========
+Game engine libraries.
