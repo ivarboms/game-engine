@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "Shader.h"
-#include "D3DUtility.h"
-#include "Assert2.h"
+#include <Graphics/Shader.h>
+#include <Graphics/D3DUtility.h>
+#include <Utility/Assert2.h>
 
 #include <d3d11.h>
 #include <d3dcompiler.h>

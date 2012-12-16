@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "TextRendering.h"
-#include "Assert2.h"
-#include "Timer.h"
+#include <Graphics/TextRendering.h>
+#include <Utility/Assert2.h>
+#include <Utility/Timer.h>
 
 
 IFW1Factory* createFontWrapper()

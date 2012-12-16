@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "FileSystemWatcher.h"
-#include <WindowsUtility.h>
+#include <Utility/WindowsUtility.h>
 
 #include <Windows.h>
 #include <assert.h>

@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "D3DDevice.h"
-#include "D3DUtility.h"
-#include "Assert2.h"
+#include <Graphics/D3DDevice.h>
+#include <Graphics/D3DUtility.h>
+#include <Utility/Assert2.h>
 
-#include "Window.h"
+#include <Utility/Window.h>
 
 #include <d3d11.h>
 

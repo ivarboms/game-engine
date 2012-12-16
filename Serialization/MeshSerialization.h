@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include <Mesh.h>
+#include <Mesh/Mesh.h>
 
 
 void saveToFile(const Mesh& mesh, const std::wstring& fileName);

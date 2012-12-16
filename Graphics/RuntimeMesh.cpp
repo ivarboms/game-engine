@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "RuntimeMesh.h"
-#include "Mesh.h"
-#include "D3DUtility.h"
-#include "Assert2.h"
+#include <Graphics/RuntimeMesh.h>
+#include <Mesh/Mesh.h>
+#include <Graphics/D3DUtility.h>
+#include <Utility/Assert2.h>
 
 #include <d3d11.h>
 

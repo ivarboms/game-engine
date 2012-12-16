@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 
-#include "MeshImporter.h"
-#include "Mesh.h"
+#include <Importers/MeshImporter.h>
+#include <Mesh/Mesh.h>
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>

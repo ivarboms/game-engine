@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Assert2.h"
+#include <Utility/Assert2.h>
 
 #include <DirectXCollision.h>
 
