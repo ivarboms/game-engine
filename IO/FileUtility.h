@@ -1,6 +1,7 @@
 #pragma once
 
 #include <time.h>
+#include <string>
 #include <boost/date_time/posix_time/posix_time_types.hpp>
 
 
@@ -24,3 +25,5 @@ FileInfo getFileInfo(const wchar_t* fileName);
 bool fileExists(const wchar_t* fileName);
 
 bool directoryExists(const wchar_t* directoryName);
+
+std::string readWholeFile(const char* fileName);
